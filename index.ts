@@ -3,8 +3,8 @@ import './style.css';
 import * as _ from 'lodash';
 // https://pythontutor.com/visualize.html#mode=display
 // Write TypeScript code!
-const appDiv: HTMLElement = document.getElementById('app');
-appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
+// const appDiv: HTMLElement = document.getElementById('app');
+// appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 
 var myobj = {
   a: 'hello',
