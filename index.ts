@@ -1,5 +1,4 @@
 // Import stylesheets
-import './style.css';
 import * as _ from 'lodash';
 // https://pythontutor.com/visualize.html#mode=display
 // Write TypeScript code!
