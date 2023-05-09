@@ -97,6 +97,7 @@ flatKey(myobj);
 // traverse(myobj);
 
 // 2023-05-09 deep clone of array of nested objects lodash and structurecloned and just-clone lib
+// lodash
 const obj = {
   name: {
     title: 'Ms',
@@ -153,7 +154,7 @@ arr[1].location.city = 'not flat 2000';
 console.log('orig', arr);
 console.log('cloned', cloneArr);
 
-//
+// just-clone
 
 const arr2 = [1, 2, 3];
 const subObj = { aa: 1 };
@@ -163,3 +164,38 @@ arr.push(4);
 objClone.d['bb'] = 2;
 console.log('orig', obj3);
 console.log('cloned', objClone);
+
+// structedClone
+
+// A multidimensional object
+let movies = {
+  studio: 'Pixar',
+  films: ['Soul', 'Onward', 'Up', 'WALL-E'],
+  directors: ['Brad Bird', 'Pete Docter', 'Andrew Stanton'],
+  details: {
+    founded: '1986',
+    founders: ['Edwin Catmull', 'Alvy Ray Smith'],
+  },
+};
+// A multidimensional array
+let wizards = [
+  {
+    name: 'Radagast',
+    color: 'brown',
+  },
+  {
+    name: 'Gandalf',
+    color: 'gray',
+    movies: movies,
+  },
+];
+// Create a copy of the wizards array
+let wizardsCopy = structuredClone(wizards);
+
+// Update a nested property
+wizards[0]['druid'] = true;
+wizards[1].movies.studio = 'homeplay';
+wizardsCopy[0].name = 'bobby';
+// The copy is not updated
+console.log('original', wizards);
+console.log('cloned', wizardsCopy);
