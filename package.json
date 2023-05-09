@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/lodash": "^4.14.194",
+    "just-clone": "^6.2.0",
     "lodash": "^4.17.21"
   }
 }

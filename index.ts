@@ -1,6 +1,8 @@
 // Import stylesheets
 import './style.css';
 import * as _ from 'lodash';
+import clone from 'just-clone';
+
 // https://pythontutor.com/visualize.html#mode=display
 // Write TypeScript code!
 // const appDiv: HTMLElement = document.getElementById('app');
@@ -93,3 +95,71 @@ flatKey(myobj);
 //   }
 // }
 // traverse(myobj);
+
+// 2023-05-09 deep clone of array of nested objects lodash and structurecloned and just-clone lib
+const obj = {
+  name: {
+    title: 'Ms',
+    first: 'Hannah',
+    last: 'Ennis',
+  },
+  location: {
+    city: 'Flatrock',
+    state: 'British Columbia',
+    country: 'Canada',
+    postcode: 'P1X 7D3',
+    coordinates: {
+      latitude: '-62.3907',
+      longitude: '37.8088',
+    },
+    timezone: {
+      offset: '+5:30',
+      description: 'Bombay, Calcutta, Madras, New Delhi',
+    },
+  },
+};
+const obj2 = {
+  name: {
+    title: 'Mr',
+    first: 'bob',
+    last: 'ski',
+  },
+  location: {
+    city: 'Flatrock 2',
+    state: 'British Columbia 2',
+    country: 'Canada 2',
+    postcode: 'P1X 7D3 2',
+    coordinates: {
+      latitude: '-62.3907',
+      longitude: '37.8088',
+    },
+    timezone: {
+      offset: '+5:30',
+      description: 'Bombay, Calcutta, Madras, New Delhi 2',
+    },
+  },
+};
+let arr = [];
+arr.push(obj);
+arr.push(obj2);
+const cloneVar = _.cloneDeep(obj);
+let cloneArr = _.cloneDeep(arr);
+console.log(obj.name === cloneVar.name); // false
+console.log(cloneVar === obj); // false
+
+cloneArr[0]['newprop1'] = 'potato';
+cloneArr[1].location.city = 'flat 2000';
+arr[1].location.city = 'not flat 2000';
+console.log('orig', arr);
+console.log('cloned', cloneArr);
+
+//
+
+const arr2 = [1, 2, 3];
+const subObj = { aa: 1 };
+const obj3 = { a: 3, b: 5, c: arr, d: subObj };
+const objClone = clone(obj3);
+arr.push(4);
+objClone.d['bb'] = 2;
+console.log('orig', obj3);
+console.log('cloned', objClone);
